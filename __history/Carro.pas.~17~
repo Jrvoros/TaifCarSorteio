@@ -1,0 +1,66 @@
+unit Carro;
+
+interface
+
+type
+  TCarro = class
+  private
+    FID: Integer;
+    FModelo: string;
+    FAnoLancamento: TDate;
+  public
+    constructor Create(AID: Integer; AModelo: string; AAnoLancamento: TDate);
+    procedure InserirNoBanco;
+    property ID: Integer read FID write FID;
+    property Modelo: string read FModelo write FModelo;
+    property AnoLancamento: TDate read FAnoLancamento write FAnoLancamento;
+  end;
+
+implementation
+
+uses
+  DatabaseUtils, System.SysUtils;
+
+constructor TCarro.Create(AID: Integer; AModelo: string; AAnoLancamento: TDate);
+begin
+  FID := AID;
+  FModelo := AModelo;
+  FAnoLancamento := AAnoLancamento;
+end;
+
+procedure TCarro.InserirNoBanco;
+var
+  SQL: string;
+begin
+  SQL := Format(
+    'INSERT INTO Carros (ID, Modelo, AnoLancamento) VALUES (%d, ''%s'', ''%s'')',
+    [FID, FModelo, FormatDateTime('yyyy-mm-dd', FAnoLancamento)]
+  );
+  InserirDadosBD(SQL);
+end;
+
+procedure InserirCarrosFicticios;
+var
+  Carros: array[1..5] of TCarro;
+  I: Integer;
+begin
+  // Inicializa os objetos com dados fictícios
+  Carros[1] := TCarro.Create(1, 'Marea', EncodeDate(2021, 5, 1));
+  Carros[2] := TCarro.Create(2, 'Uno', EncodeDate(2021, 6, 1));
+  Carros[3] := TCarro.Create(3, 'Palio', EncodeDate(2021, 7, 1));
+  Carros[4] := TCarro.Create(4, 'Siena', EncodeDate(2021, 8, 1));
+  Carros[5] := TCarro.Create(5, 'Strada', EncodeDate(2021, 9, 1));
+
+  // Insere os dados no banco
+  for I := Low(Carros) to High(Carros) do
+  begin
+    Carros[I].InserirNoBanco;
+    Carros[I].Free;
+  end;
+
+  // Você pode repetir o processo conforme necessário, ou receber os valores dinamicamente.
+end;
+
+
+end.
+

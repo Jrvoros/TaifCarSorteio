@@ -1,0 +1,70 @@
+unit Venda;
+
+interface
+
+type
+  TVenda = class
+  private
+    FID: Integer;
+    FClienteID: Integer;
+    FCarroID: Integer;
+    FDataVenda: TDate;
+  public
+    constructor Create(AID, AClienteID, ACarroID: Integer; ADataVenda: TDate);
+    procedure InserirNoBanco;
+    property ID: Integer read FID write FID;
+    property ClienteID: Integer read FClienteID write FClienteID;
+    property CarroID: Integer read FCarroID write FCarroID;
+    property DataVenda: TDate read FDataVenda write FDataVenda;
+  end;
+
+implementation
+
+uses
+  DatabaseUtils, System.SysUtils;
+
+constructor TVenda.Create(AID, AClienteID, ACarroID: Integer; ADataVenda: TDate);
+begin
+  FID := AID;
+  FClienteID := AClienteID;
+  FCarroID := ACarroID;
+  FDataVenda := ADataVenda;
+end;
+
+procedure TVenda.InserirNoBanco;
+var
+  SQL: string;
+begin
+  SQL := Format(
+    'INSERT INTO Vendas (ID, ClienteID, CarroID, DataVenda) VALUES (%d, %d, %d, ''%s'')',
+    [FID, FClienteID, FCarroID, FormatDateTime('yyyy-mm-dd', FDataVenda)]
+  );
+  InserirDadosBD(SQL);
+end;
+
+procedure InserirVendasFicticias;
+var
+  Vendas: array[1..5] of TVenda;
+  I: Integer;
+begin
+  // Inicializa os objetos com dados fictícios
+  Vendas[1] := TVenda.Create(1, 1, 1, EncodeDate(2021, 5, 10));
+  Vendas[2] := TVenda.Create(2, 2, 2, EncodeDate(2021, 6, 15));
+  Vendas[3] := TVenda.Create(3, 3, 3, EncodeDate(2021, 7, 20));
+  Vendas[4] := TVenda.Create(4, 4, 4, EncodeDate(2021, 8, 25));
+  Vendas[5] := TVenda.Create(5, 5, 5, EncodeDate(2021, 9, 30));
+
+  // Insere os dados no banco
+  for I := Low(Vendas) to High(Vendas) do
+  begin
+    Vendas[I].InserirNoBanco;
+    Vendas[I].Free;
+  end;
+
+  // Você pode repetir o processo conforme necessário, ou receber os valores dinamicamente.
+end;
+
+
+
+end.
+

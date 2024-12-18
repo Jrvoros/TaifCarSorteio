@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/12/17 19:22:33.000.456,=C:\Users\Jrvoros\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:16:42.000.816,=C:\Users\Jrvoros\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:26:59.000.744,C:\Users\Jrvoros\Desktop\Nova pasta\uCarro.pas=C:\Users\Jrvoros\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:26:59.000.744,C:\Users\Jrvoros\Desktop\Nova pasta\uCarro.dfm=C:\Users\Jrvoros\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/12/17 22:27:12.000.092,C:\Users\Jrvoros\Desktop\Nova pasta\Main.dproj=C:\Users\Jrvoros\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/12/17 22:28:54.000.499,C:\Users\Jrvoros\Desktop\Nova pasta\Carro.dfm=C:\Users\Jrvoros\Desktop\Nova pasta\uCarro.dfm</Transaction>
+    <Transaction>2024/12/17 22:28:54.000.499,C:\Users\Jrvoros\Desktop\Nova pasta\Carro.pas=C:\Users\Jrvoros\Desktop\Nova pasta\uCarro.pas</Transaction>
+    <Transaction>2024/12/17 22:30:37.000.621,=C:\Users\Jrvoros\Desktop\Nova pasta\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:31:04.000.738,C:\Users\Jrvoros\Desktop\Nova pasta\DatabaseUtils.pas=C:\Users\Jrvoros\Desktop\Nova pasta\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:32:25.000.819,=C:\Users\Jrvoros\Desktop\Nova pasta\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:32:56.000.719,C:\Users\Jrvoros\Desktop\Nova pasta\Cliente.pas=C:\Users\Jrvoros\Desktop\Nova pasta\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:33:09.000.074,=C:\Users\Jrvoros\Desktop\Nova pasta\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:33:28.000.342,C:\Users\Jrvoros\Desktop\Nova pasta\Venda.pas=C:\Users\Jrvoros\Desktop\Nova pasta\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:33:45.000.870,C:\Users\Jrvoros\Desktop\Nova pasta\Carro.pas=</Transaction>
+    <Transaction>2024/12/17 22:33:52.000.582,=C:\Users\Jrvoros\Desktop\Nova pasta\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 22:34:39.000.008,C:\Users\Jrvoros\Desktop\Nova pasta\Carro.pas=C:\Users\Jrvoros\Desktop\Nova pasta\Unit1.pas</Transaction>
+    <Transaction>2024/12/18 11:39:00.047,=C:\Users\Joao\Desktop\Questor RAD\Unit1.pas</Transaction>
+    <Transaction>2024/12/18 11:39:29.289,C:\Users\Joao\Desktop\Questor RAD\Sorteio.pas=C:\Users\Joao\Desktop\Questor RAD\Unit1.pas</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="DatabaseUtils.pas"/>
+    <File Path="Cliente.pas"/>
+    <File Path="Venda.pas"/>
+    <File Path="Carro.pas"/>
+    <File Path="Sorteio.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>

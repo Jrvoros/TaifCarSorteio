@@ -1,0 +1,25 @@
+unit DatabaseUtils;
+
+interface
+
+procedure InserirDadosBD(const SQL: string);
+procedure ExecutarSQL(const SQL: string);
+
+implementation
+
+uses
+  SysUtils, Dialogs;
+
+procedure InserirDadosBD(const SQL: string);
+begin
+  ShowMessage('Executando: ' + SQL);
+  // Aqui entra a lógica de conexão e execução com o banco de dados
+end;
+
+procedure ExecutarSQL(const SQL: string);
+begin
+  ShowMessage('Executando consulta: ' + SQL);
+  // Aqui entra a lógica de conexão e consulta ao banco
+end;
+
+end.

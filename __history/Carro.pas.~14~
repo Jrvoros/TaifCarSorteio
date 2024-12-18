@@ -1,0 +1,46 @@
+unit Carro;
+
+interface
+
+type
+  TCarro = class
+    ID: Integer;
+    Modelo: string;
+    AnoLancamento: TDate;
+  end;
+
+procedure InserirCarro(ID: Integer; Modelo, AnoLancamento: string);
+procedure InserirCarrosFicticios;
+
+implementation
+
+uses
+  DatabaseUtils, System.SysUtils;
+
+procedure InserirCarro(ID: Integer; Modelo, AnoLancamento: string);
+var
+  SQL: string;
+begin
+  SQL := Format(
+    'INSERT INTO Carros (ID, Modelo, AnoLancamento) VALUES (%d, ''%s'', ''%s'')',
+    [ID, Modelo, AnoLancamento]
+  );
+  InserirDadosBD(SQL);
+end;
+
+procedure InserirCarrosFicticios;
+var
+  ID: Integer;
+  Modelo, AnoLancamento: string;
+begin
+  ID := 1;
+  Modelo := 'Marea';
+  AnoLancamento := '2021-05-01';
+  InserirCarro(ID, Modelo, AnoLancamento);
+
+  // Você pode repetir o processo conforme necessário, ou receber os valores dinamicamente.
+end;
+
+
+end.
+

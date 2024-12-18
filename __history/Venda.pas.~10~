@@ -1,0 +1,49 @@
+unit Venda;
+
+interface
+
+type
+  TVenda = class
+    ID: Integer;
+    ClienteID: Integer;
+    CarroID: Integer;
+    DataVenda: TDate;
+  end;
+
+procedure InserirVenda(ID, ClienteID, CarroID: Integer; DataVenda: string);
+procedure InserirVendasFicticias;
+
+implementation
+
+uses
+  DatabaseUtils, System.SysUtils;
+
+procedure InserirVenda(ID, ClienteID, CarroID: Integer; DataVenda: string);
+var
+  SQL: string;
+begin
+  SQL := Format(
+    'INSERT INTO Vendas (ID, ClienteID, CarroID, DataVenda) VALUES (%d, %d, %d, ''%s'')',
+    [ID, ClienteID, CarroID, DataVenda]
+  );
+  InserirDadosBD(SQL);
+end;
+
+procedure InserirVendasFicticias;
+var
+  ID, ClienteID, CarroID: Integer;
+  DataVenda: string;
+begin
+  ID := 1;
+  ClienteID := 1;
+  CarroID := 1;
+  DataVenda := '2021-05-10';
+  InserirVenda(ID, ClienteID, CarroID, DataVenda);
+
+  // Você pode repetir o processo conforme necessário, ou receber os valores dinamicamente.
+end;
+
+
+
+end.
+

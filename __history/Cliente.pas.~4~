@@ -1,0 +1,73 @@
+unit Cliente;
+
+interface
+
+type
+  TCliente = class
+    ID: Integer;
+    Nome: string;
+    CPF: string;
+  end;
+
+procedure InserirClientes(ID: Integer; Nome, CPF: string);
+
+implementation
+
+uses
+  DatabaseUtils, System.SysUtils;
+
+procedure InserirClientes;
+begin
+  InserirDadosBD('INSERT INTO Clientes (ID, Nome, CPF) VALUES (1, ''Cliente A'', ''01234567890'')');
+  InserirDadosBD('INSERT INTO Clientes (ID, Nome, CPF) VALUES (2, ''Cliente B'', ''02345678901'')');
+  InserirDadosBD('INSERT INTO Clientes (ID, Nome, CPF) VALUES (3, ''Cliente C'', ''03456789012'')');
+  InserirDadosBD('INSERT INTO Clientes (ID, Nome, CPF) VALUES (4, ''Cliente D'', ''04567890123'')');
+  InserirDadosBD('INSERT INTO Clientes (ID, Nome, CPF) VALUES (5, ''Cliente E'', ''05678901234'')');
+end;
+
+procedure InserirCliente(ID: Integer; Nome, CPF: string);
+var
+  SQL: string;
+begin
+  SQL := Format(
+    'INSERT INTO Clientes (ID, Nome, CPF) VALUES (%d, ''%s'', ''%s'')',
+    [ID, Nome, CPF]
+  );
+  InserirDadosBD(SQL);
+end;
+
+procedure InserirClientesFicticios;
+var
+  ID: Integer;
+  Nome, CPF: string;
+begin
+  // Exemplo de valores fictícios; substitua com variáveis que venham de outro contexto.
+  ID := 1;
+  Nome := 'Cliente A';
+  CPF := '01234567890';
+  InserirCliente(ID, Nome, CPF);
+
+  ID := 2;
+  Nome := 'Cliente B';
+  CPF := '02345678901';
+  InserirCliente(ID, Nome, CPF);
+
+  ID := 3;
+  Nome := 'Cliente C';
+  CPF := '03456789012';
+  InserirCliente(ID, Nome, CPF);
+
+  ID := 4;
+  Nome := 'Cliente D';
+  CPF := '04567890123';
+  InserirCliente(ID, Nome, CPF);
+
+  ID := 5;
+  Nome := 'Cliente E';
+  CPF := '05678901234';
+  InserirCliente(ID, Nome, CPF);
+end;
+
+
+end.
+

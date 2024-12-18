@@ -1,0 +1,31 @@
+unit Sorteio;
+
+interface
+
+procedure ExecutarSorteio;
+
+implementation
+
+uses
+  System.SysUtils, DatabaseUtils;
+
+procedure ExecutarSorteio;
+begin
+  // Consultar clientes elegíveis para o sorteio
+  ExecutarSql(
+    'SELECT C.Nome, C.CPF, C.DataVenda ' +
+    'FROM Clientes C ' +
+    'JOIN Vendas V ON C.ID = V.ClienteID ' +
+    'JOIN Carros CA ON V.CarroID = CA.ID ' +
+    'WHERE CA.Modelo = ''Marea'' ' +
+    'AND LEFT(C.CPF, 1) = ''0'' ' +
+    'AND YEAR(C.DataVenda) = 2021 ' +
+    'GROUP BY C.Nome, C.CPF, C.DataVenda ' +
+    'HAVING COUNT(*) = 1 ' +
+    'ORDER BY C.DataVenda ' +
+    'LIMIT 15'
+  );
+end;
+
+end.
+
